@@ -45,13 +45,13 @@
 
 ### 方式二：直接下载
 
-1. 从 [发布页面](https://github.com/yourusername/clipboard-manager/releases) 下载最新版本
+1. 从 [发布页面](https://github.com/zezhipeng/clipboard-manager/releases) 下载最新版本
 2. 将应用拖入应用程序文件夹
 3. 首次启动时，按照提示授予必要权限
 
 ### 方式三：通过源码编译
 
-1. 克隆仓库：`git clone https://github.com/yourusername/clipboard-manager.git`
+1. 克隆仓库：`git clone https://github.com/zezhipeng/clipboard-manager.git`
 2. 用 Xcode 打开项目
 3. 编译并运行项目（⌘+R）
 
@@ -126,7 +126,7 @@
 如有问题或建议，请通过以下方式联系：
 
 - 电子邮件：your.email@example.com
-- GitHub Issues：[提交问题](https://github.com/yourusername/clipboard-manager/issues)
+- GitHub Issues：[提交问题](https://github.com/zezhipeng/clipboard-manager/issues)
 
 ## ❓ 常见问题解答
 
