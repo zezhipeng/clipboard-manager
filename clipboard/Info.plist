@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- 基础配置 -->
+    <key>CFBundleIdentifier</key>
+    <string>com.yourcompany.ClipboardManager</string>
+    <key>CFBundleName</key>
+    <string>Clipboard Manager</string>
+    <key>CFBundleVersion</key>
+    <string>1.0</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleSignature</key>
+    <string>????</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    
+    <!-- 权限配置 -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    
+    <!-- 沙盒配置 -->
+    <key>com.apple.security.app-sandbox</key>
+    <true/>
+    <key>com.apple.security.files.user-selected.read-write</key>
+    <true/>
+    
+    <!-- 辅助功能 -->
+    <key>NSAppleEventsUsageDescription</key>
+    <string>需要访问系统事件以实现剪贴板监控和全局快捷键</string>
+    
+    <!-- UI 配置 -->
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSMainNibFile</key>
+    <string>Main</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    
+    <!-- 支持类型 -->
+    <key>NSSupportsAutomaticTermination</key>
+    <true/>
+    <key>LSMinimumSystemVersion</key>
+    <string>10.15</string>
+    
+    <!-- 禁用 Storyboard -->
+    <key>NSApplication</key>
+    <true/>
+    <key>NSRequiresAquaSystemAppearance</key>
+    <false/>
+    
+    <!-- 状态栏应用 -->
+    <key>LSUIElement</key>
+    <true/>
+    
+    <!-- 快捷键权限 -->
+    <key>NSAppleEventsUsageDescription</key>
+    <string>需要访问权限以支持全局快捷键</string>
+    <key>NSAppleScriptEnabled</key>
+    <true/>
+</dict>
+</plist>
