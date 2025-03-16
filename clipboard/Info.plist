@@ -66,5 +66,9 @@
     <string>需要访问权限以支持全局快捷键</string>
     <key>NSAppleScriptEnabled</key>
     <true/>
+    
+    <!-- 辅助功能权限 -->
+    <key>NSAccessibilityUsageDescription</key>
+    <string>需要辅助功能权限以支持全局快捷键功能</string>
 </dict>
 </plist>

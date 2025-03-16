@@ -18,50 +18,6 @@
             endingLineNumber = "116"
             landmarkName = "registerShortcuts()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "72FEBC2C-E716-4D38-98D2-3256FBF16A09 - b3b149acca408677"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "clipboard.AppDelegate.applicationDidFinishLaunching(Foundation.Notification) -&gt; ()"
-                  moduleName = "clipboard.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengzezhi/Desktop/chrome/video/clipboard/clipboard/clipboardApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117">
-               </Location>
-               <Location
-                  uuid = "72FEBC2C-E716-4D38-98D2-3256FBF16A09 - 17e1a6d103eb846f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "clipboard.AppDelegate.removeMonitors() -&gt; ()"
-                  moduleName = "clipboard.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengzezhi/Desktop/chrome/video/clipboard/clipboard/clipboardApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117">
-               </Location>
-               <Location
-                  uuid = "72FEBC2C-E716-4D38-98D2-3256FBF16A09 - 17e1a6d103eb846f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "clipboard.AppDelegate.removeMonitors() -&gt; ()"
-                  moduleName = "clipboard.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengzezhi/Desktop/chrome/video/clipboard/clipboard/clipboardApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,57 +34,13 @@
             endingLineNumber = "125"
             landmarkName = "registerShortcuts()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1ED8298F-4D8E-4BCB-81D7-373A61B13536 - b3b149acca4080ac"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "clipboard.AppDelegate.applicationDidFinishLaunching(Foundation.Notification) -&gt; ()"
-                  moduleName = "clipboard.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengzezhi/Desktop/chrome/video/clipboard/clipboard/clipboardApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126">
-               </Location>
-               <Location
-                  uuid = "1ED8298F-4D8E-4BCB-81D7-373A61B13536 - d7f621410c83f4ff"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "clipboard.AppDelegate.openSettings() -&gt; ()"
-                  moduleName = "clipboard.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengzezhi/Desktop/chrome/video/clipboard/clipboard/clipboardApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125">
-               </Location>
-               <Location
-                  uuid = "1ED8298F-4D8E-4BCB-81D7-373A61B13536 - 9715e5de9aa354f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable () -&gt; Swift.Int in clipboard.AppDelegate.openSettings() -&gt; ()"
-                  moduleName = "clipboard.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengzezhi/Desktop/chrome/video/clipboard/clipboard/clipboardApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "26F7B003-1B42-4495-9506-028948ECE1DB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "clipboard/clipboardApp.swift"
@@ -139,20 +51,6 @@
             landmarkName = "registerShortcuts()"
             landmarkType = "7">
             <Locations>
-               <Location
-                  uuid = "26F7B003-1B42-4495-9506-028948ECE1DB - b3b149acca4083c5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "clipboard.AppDelegate.applicationDidFinishLaunching(Foundation.Notification) -&gt; ()"
-                  moduleName = "clipboard.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengzezhi/Desktop/chrome/video/clipboard/clipboard/clipboardApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "135"
-                  endingLineNumber = "135">
-               </Location>
                <Location
                   uuid = "26F7B003-1B42-4495-9506-028948ECE1DB - d7f621410c83f792"
                   shouldBeEnabled = "Yes"
@@ -166,6 +64,20 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
                   endingLineNumber = "136">
+               </Location>
+               <Location
+                  uuid = "26F7B003-1B42-4495-9506-028948ECE1DB - 17e1a6d103eb81dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "clipboard.AppDelegate.removeMonitors() -&gt; ()"
+                  moduleName = "clipboard.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pengzezhi/Desktop/chrome/video/clipboard/clipboard/clipboardApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -184,50 +96,6 @@
             endingLineNumber = "117"
             landmarkName = "registerShortcuts()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3516F721-0840-432F-BAB0-4B8D104D4794 - b3b149acca408677"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "clipboard.AppDelegate.applicationDidFinishLaunching(Foundation.Notification) -&gt; ()"
-                  moduleName = "clipboard.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengzezhi/Desktop/chrome/video/clipboard/clipboard/clipboardApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117">
-               </Location>
-               <Location
-                  uuid = "3516F721-0840-432F-BAB0-4B8D104D4794 - 17e1a6d103eb846f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "clipboard.AppDelegate.removeMonitors() -&gt; ()"
-                  moduleName = "clipboard.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengzezhi/Desktop/chrome/video/clipboard/clipboard/clipboardApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117">
-               </Location>
-               <Location
-                  uuid = "3516F721-0840-432F-BAB0-4B8D104D4794 - 17e1a6d103eb846f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "clipboard.AppDelegate.removeMonitors() -&gt; ()"
-                  moduleName = "clipboard.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengzezhi/Desktop/chrome/video/clipboard/clipboard/clipboardApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

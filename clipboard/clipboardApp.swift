@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import ApplicationServices
 
 @main
 struct clipboardApp: App {
@@ -26,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
         if let button = statusItem?.button {
-            button.image = NSImage(systemSymbolName: "clipboard", accessibilityDescription: "Clipboard")
+            button.image = NSImage(named: "YourStatusBarIconName")
             button.action = #selector(togglePopover)
             button.target = self
         }
@@ -50,6 +51,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self?.setupShortcuts()
             }
             .store(in: &cancellables)
+        
+        // 初始权限检查
+        checkInitialPermissions()
     }
     
     func setupMenu() {
@@ -60,6 +64,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let settingsItem = NSMenuItem(title: "设置", action: #selector(openSettings), keyEquivalent: ",")
         menu.addItem(settingsItem)
+        
+        let shortcutGuideItem = NSMenuItem(title: "快捷键教程", action: #selector(showShortcutGuide), keyEquivalent: "")
+        menu.addItem(shortcutGuideItem)
         
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "退出", action: #selector(quit), keyEquivalent: "q"))
@@ -85,13 +92,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // 转换为 ModifierFlags
         let modifierFlags = NSEvent.ModifierFlags(rawValue: UInt(finalModifiers))
         
-        print("设置快捷键: \(finalKeyCode), 修饰键: \(finalModifiers)")
+        print("设置快捷键: \(finalKeyCode), 修饰键: \(finalModifiers), 原始值: \(modifierFlags.rawValue)")
+        
+        // 使用本地监听器确保权限正常
+        if AXIsProcessTrusted() {
+            print("有辅助功能权限，监听器将正常工作")
+        } else {
+            print("无辅助功能权限，请在系统偏好设置中授予权限")
+            // 显示权限引导弹窗
+            showAccessibilityPermissionAlert()
+            
+            // 请求辅助功能权限
+            let options = [kAXTrustedCheckOptionPrompt.takeRetainedValue() as String: true]
+            AXIsProcessTrustedWithOptions(options as CFDictionary)
+        }
         
         // 添加本地监听器
         localMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
             let eventMods = event.modifierFlags.intersection([.command, .option, .shift, .control])
             
-            if Int(event.keyCode) == finalKeyCode && eventMods == modifierFlags {
+            print("检测到按键: \(event.keyCode), 修饰键: \(eventMods.rawValue)")
+            
+            if Int(event.keyCode) == finalKeyCode && eventMods.rawValue == UInt(finalModifiers) {
+                print("快捷键匹配: \(finalKeyCode)")
                 self?.togglePopover()
                 return nil
             }
@@ -102,7 +125,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         globalMonitor = NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { [weak self] event in
             let eventMods = event.modifierFlags.intersection([.command, .option, .shift, .control])
             
-            if Int(event.keyCode) == finalKeyCode && eventMods == modifierFlags {
+            if Int(event.keyCode) == finalKeyCode && eventMods.rawValue == UInt(finalModifiers) {
+                print("全局快捷键触发: \(finalKeyCode)")
                 self?.togglePopover()
             }
         }
@@ -117,6 +141,74 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let global = globalMonitor {
             NSEvent.removeMonitor(global)
             globalMonitor = nil
+        }
+    }
+    
+    // 新增权限引导弹窗方法
+    func showAccessibilityPermissionAlert() {
+        let alert = NSAlert()
+        alert.messageText = "需要辅助功能权限"
+        alert.informativeText = "剪贴板管理器需要辅助功能权限才能使用全局快捷键功能。\n\n请按照以下步骤操作：\n1. 点击"打开系统设置"按钮\n2. 在"隐私与安全性"中找到"辅助功能"\n3. 在右侧列表中勾选"剪贴板管理器"应用\n4. 重启应用以使权限生效"
+        alert.alertStyle = .warning
+        
+        alert.addButton(withTitle: "打开系统设置")
+        alert.addButton(withTitle: "稍后再说")
+        
+        // 使窗口置前
+        if let window = NSApp.windows.first {
+            alert.beginSheetModal(for: window) { response in
+                if response == .alertFirstButtonReturn {
+                    // 打开系统设置的辅助功能页面
+                    if #available(macOS 13.0, *) {
+                        NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility")!)
+                    } else {
+                        NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy")!)
+                    }
+                }
+            }
+        } else {
+            let response = alert.runModal()
+            if response == .alertFirstButtonReturn {
+                // 打开系统设置的辅助功能页面
+                if #available(macOS 13.0, *) {
+                    NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility")!)
+                } else {
+                    NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy")!)
+                }
+            }
+        }
+    }
+    
+    // 初始权限检查方法
+    func checkInitialPermissions() {
+        // 延迟1秒执行，确保UI已经加载完成
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            if !AXIsProcessTrusted() {
+                self?.showAccessibilityPermissionAlert()
+            }
+            
+            // 检查是否首次启动应用
+            let hasLaunchedBefore = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+            if !hasLaunchedBefore {
+                self?.showWelcomeGuide()
+                UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+            }
+        }
+    }
+    
+    // 欢迎指引弹窗
+    func showWelcomeGuide() {
+        let alert = NSAlert()
+        alert.messageText = "欢迎使用剪贴板管理器"
+        alert.informativeText = "这是一个可以记录您剪贴板历史的便捷工具。\n\n基本使用：\n• 复制任何内容后，都会自动记录在历史中\n• 使用全局快捷键（默认为⌘⇧F）可以随时打开剪贴板历史\n• 点击任何历史记录可以再次复制使用\n• 在设置中可以自定义快捷键和最大历史记录条数\n\n开始使用吧！"
+        alert.alertStyle = .informational
+        
+        alert.addButton(withTitle: "我知道了")
+        
+        if let window = NSApp.windows.first {
+            alert.beginSheetModal(for: window, completionHandler: nil)
+        } else {
+            alert.runModal()
         }
     }
     
@@ -151,6 +243,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             } else {
                 popover?.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
             }
+        }
+    }
+    
+    @objc func showShortcutGuide() {
+        let alert = NSAlert()
+        alert.messageText = "快捷键使用教程"
+        alert.informativeText = "全局快捷键设置：\n\n1. 点击菜单栏中的设置选项\n2. 在设置窗口中，点击"全局快捷键"下的按钮\n3. 按下您想要设置的组合键（必须包含至少一个修饰键⌘⌥⇧⌃）\n4. 点击确定保存设置\n\n使用快捷键：\n在任何应用中按下您设置的快捷键组合，即可立即打开剪贴板历史。\n\n注意：快捷键功能需要辅助功能权限才能正常工作。"
+        alert.alertStyle = .informational
+        
+        alert.addButton(withTitle: "我知道了")
+        
+        if let window = NSApp.windows.first {
+            alert.beginSheetModal(for: window, completionHandler: nil)
+        } else {
+            alert.runModal()
         }
     }
     
