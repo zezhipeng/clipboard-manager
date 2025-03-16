@@ -148,7 +148,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func showAccessibilityPermissionAlert() {
         let alert = NSAlert()
         alert.messageText = "需要辅助功能权限"
-        alert.informativeText = "剪贴板管理器需要辅助功能权限才能使用全局快捷键功能。\n\n请按照以下步骤操作：\n1. 点击"打开系统设置"按钮\n2. 在"隐私与安全性"中找到"辅助功能"\n3. 在右侧列表中勾选"剪贴板管理器"应用\n4. 重启应用以使权限生效"
+        alert.informativeText = "剪贴板管理器需要辅助功能权限才能使用全局快捷键功能。\n\n请按照以下步骤操作：\n1. 点击\"打开系统设置\"按钮\n2. 在\"隐私与安全性\"中找到\"辅助功能\"\n3. 在右侧列表中勾选\"剪贴板管理器\"应用\n4. 重启应用以使权限生效"
         alert.alertStyle = .warning
         
         alert.addButton(withTitle: "打开系统设置")
@@ -249,7 +249,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func showShortcutGuide() {
         let alert = NSAlert()
         alert.messageText = "快捷键使用教程"
-        alert.informativeText = "全局快捷键设置：\n\n1. 点击菜单栏中的设置选项\n2. 在设置窗口中，点击"全局快捷键"下的按钮\n3. 按下您想要设置的组合键（必须包含至少一个修饰键⌘⌥⇧⌃）\n4. 点击确定保存设置\n\n使用快捷键：\n在任何应用中按下您设置的快捷键组合，即可立即打开剪贴板历史。\n\n注意：快捷键功能需要辅助功能权限才能正常工作。"
+        alert.informativeText = "全局快捷键设置：\n\n1. 点击菜单栏中的设置选项\n2. 在设置窗口中，点击\"全局快捷键\"下的按钮\n3. 按下您想要设置的组合键（必须包含至少一个修饰键⌘⌥⇧⌃）\n4. 点击确定保存设置\n\n使用快捷键：\n在任何应用中按下您设置的快捷键组合，即可立即打开剪贴板历史。\n\n注意：快捷键功能需要辅助功能权限才能正常工作。"
         alert.alertStyle = .informational
         
         alert.addButton(withTitle: "我知道了")
